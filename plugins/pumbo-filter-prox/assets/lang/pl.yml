@@ -1,0 +1,98 @@
+# --- common ---
+# Komunikaty wspólne dla wszystkich wtyczek Pumbo (polski).
+# Komunikaty zwrotne dostają od wtyczki prefiks i kolor swojego tonu (zielony
+# sukces, czerwony błąd, żółte ostrzeżenie, szara informacja), więc pisze się je
+# bez nich. Kody & nadal działają: &f...&r wyróżnia wartość, &r wraca do koloru
+# tonu. {0}, {1}, ... to argumenty, {nl} zaczyna nową linię. Pusta wartość
+# wyłącza komunikat. Formy rozdzielone | zależą od liczby:
+# "{0} dzień|{0} dni|{0} dni" (1, 2-4, 5+).
+command-no-permission: Nie masz do tego uprawnień.
+command-unknown: Nieznana podkomenda {0}. Użyj {1}.
+command-unknown-hover: Kliknij, żeby zobaczyć komendy
+command-usage: "Użycie: {0}"
+command-usage-hover: Kliknij, żeby wpisać komendę
+command-players-only: Tej komendy mogą używać tylko gracze.
+command-player-not-found: Nie znaleziono gracza {0}.
+command-invalid-duration: "Nieprawidłowy czas {0}. Przykłady: &f30m&r, &f1d12h&r, &fperm"
+command-reloaded: Konfiguracja przeładowana.
+command-reload-failed: "Nic nie przeładowano, plik ma błąd: {0}"
+command-error: Coś poszło nie tak, szczegóły w logu serwera.
+command-help-empty: Nie ma komend, których możesz użyć.
+command-help-hint: Najedź na komendę po opis, kliknij, by ją wpisać.
+command-help-previous: Poprzednia strona
+command-help-next: Następna strona
+command-help-permission: "Uprawnienie: {0}"
+command-help-click: Kliknij, żeby wpisać na czacie
+version-description: Wersja i platforma
+version-platform: Platforma
+time-permanent: na zawsze
+time-day: "{0} dzień|{0} dni|{0} dni"
+time-hour: "{0} godzina|{0} godziny|{0} godzin"
+time-minute: "{0} minuta|{0} minuty|{0} minut"
+time-second: "{0} sekunda|{0} sekundy|{0} sekund"
+number-separator: " "
+
+# --- filter ---
+# Komunikaty PumboFilter (polski).
+# Odpowiedzi dostają prefiks i kolor tonu od wtyczki, więc są pisane bez nich;
+# &f...&r wyróżnia wartość. Kicki i tytuły są pokazywane tak, jak są napisane
+# (kody kolorów &). {0}, {1}, ... to argumenty, {nl} zaczyna nową linię. Pusta
+# wartość wyłącza komunikat.
+
+check-start: Sprawdzamy połączenie. Nie ruszaj się, dopóki sprawdzanie się nie skończy.
+check-title: "&6Nie ruszaj się"
+check-subtitle: "&7Sprawdzamy połączenie"
+check-progress: Sprawdzanie... {0}%
+check-passed: Sprawdzanie zaliczone.
+check-wait: Najpierw dokończ sprawdzanie.
+
+captcha-start: "Wpisz na czacie kod z mapy w ręce. Próby: {0}."
+captcha-start-title: "Wpisz na czacie kod z tytułu. Próby: {0}."
+captcha-title: "&6Wpisz kod"
+captcha-subtitle: "&7z mapy w ręce"
+captcha-subtitle-title: "&7Wpisz ten kod na czacie"
+captcha-wrong: "Zły kod. Zostało prób: {0}."
+captcha-none: Nie ma kodu do wpisania.
+
+kick-timeout: "&cSprawdzanie trwało za długo.{nl}&7Wejdź ponownie."
+kick-falling-failed: "&cSprawdzanie połączenia nie wyszło.{nl}&7Nie ruszaj się, gdy ekran jest ciemny."
+kick-captcha-failed: "&cZły kod.{nl}&7Wejdź ponownie."
+kick-client-brand: "&cTen klient nie jest obsługiwany."
+kick-client-settings: "&cTwój klient nie wysłał ustawień."
+kick-reconnect: "&ePołączenie sprawdzone.{nl}&7Wejdź ponownie."
+kick-already-online: "&cJesteś już na serwerze."
+kick-join-again: "&eByłeś jeszcze połączony.{nl}&7Wejdź za chwilę."
+kick-other-connection: "&ePołączono ponownie z innego miejsca."
+reload-join-again: PumboFilter jest przeładowywany. Wejdź na serwer ponownie.
+
+help-section: Admin
+help-reload: Przeładowuje config i komunikaty
+help-stats: Sprawdzanie, tryb ataku i gracze
+help-verify: Nick z adresu pomija sprawdzanie
+help-verify-details: "Para jest zweryfikowana przez verified-ttl-hours.{nl}Przykład: /pumbofilter verify Steve 1.2.3.4"
+help-unverify: Sprawdza nick od nowa
+help-unverify-details: Usuwa wszystkie adresy nicku z cache zweryfikowanych.
+help-attack: Wymusza tryb ataku
+help-attack-details: auto znowu przełącza według liczby połączeń.
+
+stats-held: "Trzymani teraz: {0} z {1} graczy"
+stats-checks: "Sprawdzeni: {0}, zaliczyli: {1}, odpadli: {2}, odstawieni po awarii: {3}"
+stats-attack: "Tryb ataku: {0}, {1} połączeń w ostatnich {2} s, {3} zablokowanych łącznie"
+stats-database: "Baza: {0}"
+stats-ok: działa
+attack-normal: wyłączony
+attack-active: włączony
+attack-reconnect: włączony, nowi gracze wchodzą dwa razy
+verify-done: "{0} z {1} jest zweryfikowany na {2}."
+unverify-done: Usunięto {0} wpisów {1} z cache zweryfikowanych.
+attack-set: "Tryb ataku: {0}."
+attack-usage: Użyj on, off albo auto.
+invalid-ip: Zły adres {0}.
+database-error: "Baza nie działa: {0}"
+reloaded-warnings: "Przeładowano, ostrzeżeń: {0}; szczegóły w logu serwera."
+
+# --- filter-prox ---
+# PumboFilter na PumboProx (polski).
+prefix: "&#f28c28PumboFilter &8» "
+kick-bot-blocked: "&cZ Twojego adresu było za dużo nieudanych sprawdzeń.{nl}&7Spróbuj później."
+

@@ -1,0 +1,24 @@
+[package]
+name = "pumbo-filter-prox"
+description = "PumboFilter for the PumboProx proxy: anti-bot checks in the proxy's virtual world before any server sees the player"
+# Product version of PumboFilter on PumboProx (the core crates share the workspace version).
+version = "0.1.0-beta.1"
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+publish.workspace = true
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+pumbo-common.workspace = true
+pumbo-filter-core.workspace = true
+pumbo-sdk.workspace = true
+serde.workspace = true
+
+[lints]
+workspace = true
+
+[dev-dependencies]
+serde_json.workspace = true

@@ -1,0 +1,57 @@
+# PumboFilter messages (English).
+# Replies get the plugin prefix and the colour of their tone from the plugin, so
+# they are written without either; &f...&r highlights a value. Kicks and titles
+# are shown as written (& colour codes). {0}, {1}, ... are arguments, {nl} starts
+# a new line. An empty value disables a message.
+
+check-start: Checking your connection. Do not move until the check is done.
+check-title: "&6Don't move"
+check-subtitle: "&7Checking your connection"
+check-progress: Checking... {0}%
+check-passed: Check passed.
+check-wait: Finish the check first.
+
+captcha-start: "Type the code from the map in your hand in chat. Attempts: {0}."
+captcha-start-title: "Type the code from the title in chat. Attempts: {0}."
+captcha-title: "&6Enter the code"
+captcha-subtitle: "&7from the map in your hand"
+captcha-subtitle-title: "&7Type this code in chat"
+captcha-wrong: "Wrong code. Attempts left: {0}."
+captcha-none: There is no code to enter.
+
+kick-timeout: "&cThe check took too long.{nl}&7Please join again."
+kick-falling-failed: "&cThe connection check failed.{nl}&7Do not move while the screen is dark."
+kick-captcha-failed: "&cWrong code.{nl}&7Please join again."
+kick-client-brand: "&cYour client is not supported."
+kick-client-settings: "&cYour client did not send its settings."
+kick-reconnect: "&eConnection checked.{nl}&7Please join again."
+kick-already-online: "&cYou are already on the server."
+kick-join-again: "&eYou were still connected.{nl}&7Join again in a moment."
+kick-other-connection: "&eYou connected again from another place."
+reload-join-again: PumboFilter is being reloaded. Please join the server again.
+
+help-section: Admin
+help-reload: Reload the config and messages
+help-stats: Checks, attack mode and players
+help-verify: Let a nickname from an address skip the checks
+help-verify-details: "The pair stays verified for verified-ttl-hours.{nl}Example: /pumbofilter verify Steve 1.2.3.4"
+help-unverify: Check a nickname again
+help-unverify-details: Removes every address of the nickname from the verified cache.
+help-attack: Force attack mode on or off
+help-attack-details: auto switches by the connection rate again.
+
+stats-held: "Held now: {0} of {1} players"
+stats-checks: "Checked: {0}, passed: {1}, failed: {2}, put back after a crash: {3}"
+stats-attack: "Attack mode: {0}, {1} connections in the last {2} s, {3} blocked in total"
+stats-database: "Database: {0}"
+stats-ok: ok
+attack-normal: "off"
+attack-active: "on"
+attack-reconnect: on, new players have to join twice
+verify-done: "{0} from {1} is verified for {2}."
+unverify-done: Removed {0} entries of {1} from the verified cache.
+attack-set: Attack mode is now {0}.
+attack-usage: Use on, off or auto.
+invalid-ip: Invalid address {0}.
+database-error: "The database is not available: {0}"
+reloaded-warnings: Reloaded with {0} warnings, see the server log.

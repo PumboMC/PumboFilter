@@ -1,0 +1,65 @@
+# ══════════════════════════════════════════════════════════════
+#  PumboFilter · config.yml
+#  Apply changes:  /pumbofilter reload
+#  Times:          the unit is in the name (-seconds, -ticks; 20 ticks = 1 s)
+#  Full reference: README.md → Configuration
+# ══════════════════════════════════════════════════════════════
+
+language: en                 # en | pl  (files in lang/)
+
+
+# ── Checks ────────────────────────────────────────────────────
+filter:
+  check-mode: GRAVITY_THEN_CAPTCHA # ALWAYS | ONLY_GRAVITY | ONLY_CAPTCHA | GRAVITY_THEN_CAPTCHA | NEVER
+  attack-check-mode: ALWAYS        # the same choice during an attack
+  skip-premium: true               # Mojang-authenticated players skip the checks, see README
+  verified-cache: true             # let players who passed in directly
+  verified-ttl-hours: 12           # how long a pass counts
+  whitelist: []                    # never checked, e.g. ["Steve@1.2.3.4"]
+
+
+# ── CAPTCHA ───────────────────────────────────────────────────
+captcha:
+  enabled: true
+  mode: map                          # map (code on a map in the hand) | title
+  attempts: 2                        # wrong answers before the kick
+  timeout-seconds: 30
+  length: 3                          # characters in a code
+  alphabet: acdefhkmnprstuvwxy234678 # letters that are easy to tell apart
+  ignore-case: true
+  pool-size: 200                     # images drawn in advance
+  regenerate-minutes: 60             # how often the images are replaced
+  curves: 3                          # lines drawn over the code
+  noise-dots: 220                    # dots drawn over the code
+
+
+# ── Gravity check ─────────────────────────────────────────────
+gravity:
+  enabled: true
+  falling-check-ticks: 128   # free fall that must match vanilla (6.4 s)
+  falling-grace-ticks: 100   # extra time for reports lost at the start
+  max-y-difference: 0.01     # allowed difference from the expected height, blocks
+  max-y-errors: 10
+  max-xz-errors: 10
+  debug: false               # log the result of every check
+
+
+# ── Client check ──────────────────────────────────────────────
+client-check:
+  enabled: true
+  check-brand: true          # real clients send their brand (vanilla, fabric...)
+  check-settings: true       # ...and their settings
+  check-ticks: 60            # when to check, ticks after joining
+  blocked-brands: []         # refused brands (parts of the name, any case)
+
+
+# ── Attack mode ───────────────────────────────────────────────
+attack:
+  enabled: true
+  window-seconds: 5          # connections are counted in this window
+  threshold: 25              # from this many: attack mode (attack-check-mode)
+  reconnect-threshold: 80    # from this many: unknown players join twice
+  reconnect-min-seconds: 2   # the second join is accepted after...
+  reconnect-max-seconds: 120 # ...and before this
+  cooldown-seconds: 60       # attack mode ends this long after the rate drops
+  log-interval-seconds: 10

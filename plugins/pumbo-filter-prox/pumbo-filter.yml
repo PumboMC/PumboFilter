@@ -1,0 +1,34 @@
+# Manifest of PumboFilter for PumboProx (copy next to pumbo-filter.wasm in plugins/).
+id: pumbo-filter
+version: 0.1.0-beta.1
+api: "0.1"
+events: [pre-login, gate, virtual-input, disconnect, timer, command]
+short-name: filter
+short-alias: pf             # /pf = /pumbofilter
+# The first gate: the gravity check and the CAPTCHA happen in the proxy's
+# virtual world; PumboAuth (priority 200) follows in the same connection.
+gate: { name: filter, priority: 100, on-failure: deny }
+on-failure: { pre-login: deny }
+
+publishes: ["pumbo:attack-state@1.0"]
+# Automatic IP bans of bots go through PumboBans when it is there (auto-ban).
+uses:
+  - { service: "pumbobans:punish", version: "1.0", required: false }
+
+permissions:
+  - node: pumbo.filter.bypass
+    description: "Skip the checks (keep it in permissions.yml: gates see the file only)"
+  - node: pumbo.filter.stats
+    description: Checks, attack mode and players (/pumbofilter stats)
+  - node: pumbo.filter.verify
+    description: Let a nickname from an address skip the checks
+  - node: pumbo.filter.unverify
+    description: Check a nickname again
+  - node: pumbo.filter.attack
+    description: Force attack mode on or off
+  - node: pumbo.filter.reload
+    description: /pumbo filter reload
+  - node: pumbo.filter.version
+    description: /pumbo filter version
+  - node: pumbo.filter.debug
+    description: /pumbo filter debug

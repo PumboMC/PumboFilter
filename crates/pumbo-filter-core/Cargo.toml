@@ -1,0 +1,15 @@
+[package]
+name = "pumbo-filter-core"
+description = "PumboFilter core: anti-bot checks (gravity, map CAPTCHA, client check, attack mode) without platform code"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+publish.workspace = true
+
+[dependencies]
+pumbo-common.workspace = true
+serde.workspace = true
+
+[lints]
+workspace = true
