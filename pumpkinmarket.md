@@ -25,6 +25,10 @@ Anti-bot checks for Pumpkin servers. A new player falls for a few seconds high a
 
 `/pf help` shows every command you may use. `/pf` is short for `/pumbofilter`. Permissions are named `pumbofilter:<name>` (`pumbofilter:bypass` skips the checks) and default to operators.
 
+## Screenshots
+
+![/pf help](assets/market/help.webp)
+
 ## Installation
 
 Drop the file into `plugins/` and start the server. The config is created in `plugins/data/pumbofilter/`. Works with Pumpkin 0.2.0 (Minecraft 26.3).
