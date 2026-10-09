@@ -92,7 +92,7 @@ pub fn run(gate: &mut Gate, sender: &Sender, args: &[String], platform: &str, no
     let lang = gate.lang.clone();
     let reply = |t: Text| Outcome::Reply(t);
     match tree.dispatch(args, sender.allowed) {
-        Dispatch::Help => reply(help(gate, sender, page_arg(args.get(1..).unwrap_or(&[])))),
+        Dispatch::Help => reply(help(gate, sender, page_arg(args))),
         Dispatch::Unknown { name } => reply(style::unknown_subcommand(&lang, &name, &tree.help_line())),
         Dispatch::NoPermission { .. } => reply(style::error(&lang, "command-no-permission", &Args::new())),
         Dispatch::Usage { usage } => reply(style::usage(&lang, &usage)),
