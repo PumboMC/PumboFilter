@@ -99,17 +99,17 @@ The checks live in one shared core. You pick the build that fits your setup.
 
 | Build | File | Where it goes | What is different |
 | --- | --- | --- | --- |
-| 🌐 **PumboProx** (whole network) | `pumbo-filter.wasm` | `plugins/` of the proxy | Checks run in the proxy's virtual world, before any server sees the player. Adds auto-ban, per-player language and a separate check mode for ViaProxy clients. |
-| 🎃 **Pumpkin** (one server) | `PumboFilter-26.3.wasm` or `PumboFilter-26.2.wasm` | `plugins/` of the server | Checks run on the server. The held player is hidden, cannot be hurt and cannot use anything. Their world, inventory and data file never change. |
+| 🌐 **PumboProx** (whole network) | `PumboFilter-Proxy-<version>.wasm` | `plugins/` of the proxy | Checks run in the proxy's virtual world, before any server sees the player. Adds auto-ban, per-player language and a separate check mode for ViaProxy clients. |
+| 🎃 **Pumpkin** (one server) | `PumboFilter-Pumpkin-26.3-<version>.wasm` or `PumboFilter-Pumpkin-26.2-<version>.wasm` | `plugins/` of the server | Checks run on the server. The held player is hidden, cannot be hurt and cannot use anything. Their world, inventory and data file never change. |
 
 ## Installation
 
-> [!IMPORTANT]
-> Ready-made files come with release 0.1. Until then, [build from source](#building).
+> [!TIP]
+> Download the files from [Releases](https://github.com/PumboMC/PumboFilter/releases/latest), or [build from source](#building).
 
 **On PumboProx**
 
-1. Put `pumbo-filter.wasm` into the proxy's `plugins/` folder.
+1. Put `PumboFilter-Proxy-<version>.wasm` into the proxy's `plugins/` folder.
 2. Start the proxy. The first start creates `plugins/pumbo-filter/config.yml` with comments.
 3. Recommended in `pumboprox.yml`, so nobody gets in while the filter is not running:
 
