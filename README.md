@@ -161,7 +161,7 @@ Every section also has `enabled` to turn its check off.
 | `/pumbofilter version` | Version and platform | `pumbo.filter.version` |
 | (no command) | Skip the checks | `pumbo.filter.bypass` |
 
-`/pf` is short for `/pumbofilter`, on PumboProx and on Pumpkin. On PumboProx every command also works as `/pumbo filter <command>` (`/pumbo filter` alone shows the help) and from the proxy console. On Pumpkin the permissions are named `pumbofilter:<name>` (for example `pumbofilter:bypass`) and the admin commands default to operators.
+`/pf` is short for `/pumbofilter`, on PumboProx and on Pumpkin. On PumboProx the commands also work from the proxy console. On Pumpkin the permissions are named `pumbofilter:<name>` (for example `pumbofilter:bypass`) and the admin commands default to operators.
 
 ## Works with other Pumbo plugins
 
