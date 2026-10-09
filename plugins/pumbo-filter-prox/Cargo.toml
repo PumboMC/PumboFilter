@@ -2,7 +2,7 @@
 name = "pumbo-filter-prox"
 description = "PumboFilter for the PumboProx proxy: anti-bot checks in the proxy's virtual world before any server sees the player"
 # Product version of PumboFilter on PumboProx (the core crates share the workspace version).
-version = "0.1.1-beta.1"
+version = "0.1.1-beta"
 edition.workspace = true
 license.workspace = true
 authors.workspace = true

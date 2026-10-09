@@ -516,8 +516,8 @@ dependencies = [
 
 [[package]]
 name = "pumbo-common"
-version = "0.1.1-beta.1"
-source = "git+https://github.com/PumboMC/PumboProx#af58cad0a4101a8ee9fb25a3124bd4cf8669057f"
+version = "0.1.1-beta"
+source = "git+https://github.com/PumboMC/PumboProx#90291858dbfaf755b85a3950e9ec94255124c96b"
 dependencies = [
  "md-5",
  "rand_core",
@@ -529,15 +529,15 @@ dependencies = [
 
 [[package]]
 name = "pumbo-contracts"
-version = "0.1.1-beta.1"
-source = "git+https://github.com/PumboMC/PumboProx#af58cad0a4101a8ee9fb25a3124bd4cf8669057f"
+version = "0.1.1-beta"
+source = "git+https://github.com/PumboMC/PumboProx#90291858dbfaf755b85a3950e9ec94255124c96b"
 dependencies = [
  "serde",
 ]
 
 [[package]]
 name = "pumbo-filter-core"
-version = "0.1.1-beta.1"
+version = "0.1.1-beta"
 dependencies = [
  "pumbo-common",
  "serde",
@@ -545,7 +545,7 @@ dependencies = [
 
 [[package]]
 name = "pumbo-filter-prox"
-version = "0.1.1-beta.1"
+version = "0.1.1-beta"
 dependencies = [
  "pumbo-common",
  "pumbo-filter-core",
@@ -556,7 +556,7 @@ dependencies = [
 
 [[package]]
 name = "pumbo-filter-pumpkin"
-version = "0.1.1-beta.1"
+version = "0.1.1-beta"
 dependencies = [
  "pumbo-common",
  "pumbo-filter-core",
@@ -567,8 +567,8 @@ dependencies = [
 
 [[package]]
 name = "pumbo-sdk"
-version = "0.1.1-beta.1"
-source = "git+https://github.com/PumboMC/PumboProx#af58cad0a4101a8ee9fb25a3124bd4cf8669057f"
+version = "0.1.1-beta"
+source = "git+https://github.com/PumboMC/PumboProx#90291858dbfaf755b85a3950e9ec94255124c96b"
 dependencies = [
  "ciborium",
  "futures",
