@@ -27,6 +27,7 @@ Anti-bot checks for Pumpkin servers. A new player falls for a few seconds high a
 
 ## Screenshots
 
+![The check: "Don't move" while PumboFilter compares the fall with vanilla physics](assets/market/check.webp)
 ![/pf help](assets/market/help.webp)
 
 ## Installation
