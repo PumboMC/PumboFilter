@@ -1,0 +1,21 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        ":semanticCommitsDisabled",
+        ":pinVersions",
+        ":automergeMinor"
+    ],
+    "labels": ["dependencies"],
+    "dependencyDashboardLabels": ["dependencies"],
+    "lockFileMaintenance": {
+        "enabled": true,
+        "schedule": ["at any time"]
+    },
+    "packageRules": [
+        {
+            "matchPackageNames": ["pumpkin-plugin-api"],
+            "enabled": false,
+            "description": "Pinned to the Pumpkin plugin API versions supported by the mc262 and mc263 builds"
+        }
+    ]
+}
