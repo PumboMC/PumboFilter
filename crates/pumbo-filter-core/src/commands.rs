@@ -239,4 +239,18 @@ mod tests {
         assert!(reply(run(&mut g, &p, &args("stats"), "test", 0)).contains("permission"));
         assert!(reply(run(&mut g, &p, &args(""), "test", 0)).contains("no commands"));
     }
+
+    #[test]
+    fn pumbo_nodes_cover_plugin_nodes() {
+        let t = tree();
+        let mut nodes: Vec<String> = t.subs().iter().map(|s| t.permission(s)).collect();
+        nodes.extend(["command", "captcha", "bypass"].map(|a| pumbo_common::command::permission(ID, a)));
+        let hosts: Vec<String> = nodes.iter().map(|n| n.replacen("pumbo.filter.", "pumbofilter:", 1)).collect();
+        for host in &hosts {
+            assert!(pumbo_common::pumpkin::PUMBO_NODES.contains(&host.as_str()), "{host} missing from PUMBO_NODES");
+        }
+        for n in pumbo_common::pumpkin::PUMBO_NODES.iter().filter(|n| n.starts_with("pumbofilter:")) {
+            assert!(hosts.iter().any(|h| h == n), "{n} in PUMBO_NODES is no node of the plugin");
+        }
+    }
 }
