@@ -27,9 +27,9 @@ dbg_macro = "deny"
 [workspace.dependencies]
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
-pumbo-common = { git = "https://github.com/PumboMC/PumboProx" }
+pumbo-common = { git = "https://github.com/PumboMC/PumboProx", branch = "dev" }
 pumbo-filter-core = { path = "crates/pumbo-filter-core" }
-pumbo-sdk = { git = "https://github.com/PumboMC/PumboProx" }
+pumbo-sdk = { git = "https://github.com/PumboMC/PumboProx", branch = "dev" }
 
 [profile.release]
 opt-level = "s"
