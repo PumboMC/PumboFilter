@@ -729,7 +729,10 @@ impl Gate {
             let in_captcha = matches!(self.players.get(&uuid).map(|p| &p.phase), Some(Phase::Captcha { .. }));
             if in_captcha {
                 if args.is_empty() {
-                    return (true, vec![Effect::Say(uuid, style::usage(&self.lang, "/captcha <code>"))]);
+                    return (
+                        true,
+                        vec![Effect::Say(uuid, style::usage(&self.lang, style::accent::FILTER, "/captcha <code>"))],
+                    );
                 }
                 return (true, self.answer(&uuid, &args.join(""), now));
             }
