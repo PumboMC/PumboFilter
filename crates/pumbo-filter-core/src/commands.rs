@@ -80,7 +80,7 @@ pub fn reloaded(gate: &Gate, warnings: usize) -> Text {
 }
 
 fn help(gate: &Gate, sender: &Sender, page: usize) -> Text {
-    let help = Help::from_commands("PumboFilter", &tree(), &gate.lang)
+    let help = Help::from_commands("PumboFilter", style::accent::FILTER, &tree(), &gate.lang)
         .version(env!("CARGO_PKG_VERSION"))
         .section(gate.lang.get("help-section"));
     if sender.console { help.console(&gate.lang, sender.allowed) } else { help.chat(&gate.lang, page, sender.allowed) }
@@ -93,20 +93,23 @@ pub fn run(gate: &mut Gate, sender: &Sender, args: &[String], platform: &str, no
     let reply = |t: Text| Outcome::Reply(t);
     match tree.dispatch(args, sender.allowed) {
         Dispatch::Help { page } => reply(help(gate, sender, page)),
-        Dispatch::Unknown { name } => reply(style::unknown_subcommand(&lang, &name, &tree.help_line())),
+        Dispatch::Unknown { name } => {
+            reply(style::unknown_subcommand(&lang, style::accent::FILTER, &name, &tree.help_line()))
+        }
         Dispatch::NoPermission { .. } => reply(style::error(&lang, "command-no-permission", &Args::new())),
-        Dispatch::Usage { usage } => reply(style::usage(&lang, &usage)),
+        Dispatch::Usage { usage } => reply(style::usage(&lang, style::accent::FILTER, &usage)),
         Dispatch::Run { sub, args } => match sub.handler {
             Action::Reload => Outcome::Reload,
             Action::Version => reply(style::version(
                 "PumboFilter",
+                style::accent::FILTER,
                 env!("CARGO_PKG_VERSION"),
                 [(lang.get("version-platform"), platform.to_string())],
             )),
             Action::Stats => reply(stats(gate, now)),
             Action::Verify => {
                 let (Some(nick), Some(ip)) = (args.first(), args.get(1)) else {
-                    return reply(style::usage(&lang, &tree.usage(sub)));
+                    return reply(style::usage(&lang, style::accent::FILTER, &tree.usage(sub)));
                 };
                 if parse_ip(ip).is_none() {
                     return reply(style::error(&lang, "invalid-ip", &Args::new().arg(style::value(ip))));
@@ -124,7 +127,9 @@ pub fn run(gate: &mut Gate, sender: &Sender, args: &[String], platform: &str, no
                 }
             }
             Action::Unverify => {
-                let Some(nick) = args.first() else { return reply(style::usage(&lang, &tree.usage(sub))) };
+                let Some(nick) = args.first() else {
+                    return reply(style::usage(&lang, style::accent::FILTER, &tree.usage(sub)));
+                };
                 match gate.unverify(nick) {
                     Ok(n) => reply(style::success(
                         &lang,
@@ -202,6 +207,13 @@ mod tests {
     use super::*;
     use crate::config::FilterSettings;
 
+    #[test]
+    fn pumpkin_list_has_every_filter_command() {
+        for name in [LABEL.trim_start_matches('/'), ALIAS, "captcha"] {
+            assert_eq!(pumbo_common::pumpkin::pumbo_command_owner(name), Some("PumboFilter"), "{name}");
+        }
+    }
+
     fn gate() -> Gate {
         let (lang, _) = Lang::load(&[COMMON, crate::LANG], "en", Some("prefix: \"F » \"\n"));
         Gate::new(FilterSettings::default(), lang, Ok(Store::in_memory()))
@@ -238,5 +250,19 @@ mod tests {
         let p = Sender { console: false, allowed: &none };
         assert!(reply(run(&mut g, &p, &args("stats"), "test", 0)).contains("permission"));
         assert!(reply(run(&mut g, &p, &args(""), "test", 0)).contains("no commands"));
+    }
+
+    #[test]
+    fn pumbo_nodes_cover_plugin_nodes() {
+        let t = tree();
+        let mut nodes: Vec<String> = t.subs().iter().map(|s| t.permission(s)).collect();
+        nodes.extend(["command", "captcha", "bypass"].map(|a| pumbo_common::command::permission(ID, a)));
+        let hosts: Vec<String> = nodes.iter().map(|n| n.replacen("pumbo.filter.", "pumbofilter:", 1)).collect();
+        for host in &hosts {
+            assert!(pumbo_common::pumpkin::PUMBO_NODES.contains(&host.as_str()), "{host} missing from PUMBO_NODES");
+        }
+        for n in pumbo_common::pumpkin::PUMBO_NODES.iter().filter(|n| n.starts_with("pumbofilter:")) {
+            assert!(hosts.iter().any(|h| h == n), "{n} in PUMBO_NODES is no node of the plugin");
+        }
     }
 }
