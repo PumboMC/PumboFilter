@@ -30,10 +30,19 @@ pub fn pumpkin_node(node: &str) -> String {
     format!("{PLUGIN_NAME}:{action}")
 }
 
+/// Label of a Minecraft 26.3 build. build.sh sets `PUMBO_PUMPKIN=0.2.0` for the
+/// file built against plugin API 0.2.0; every other 26.3 build is for 0.2.1.
+pub const fn platform_263(pumpkin: Option<&str>) -> &'static str {
+    match pumpkin {
+        Some(v) if matches!(v.as_bytes(), b"0.2.0") => "Pumpkin 0.2.0 (MC 26.3)",
+        _ => "Pumpkin 0.2.1 (MC 26.3)",
+    }
+}
+
 #[cfg(all(target_arch = "wasm32", feature = "mc263", feature = "mc262"))]
 compile_error!("enable only one of the features `mc263` and `mc262`");
 #[cfg(all(target_arch = "wasm32", not(any(feature = "mc263", feature = "mc262"))))]
-compile_error!("enable one of the features `mc263` (Pumpkin 0.2.0) or `mc262` (Pumpkin 0.1.0-dev)");
+compile_error!("enable one of the features `mc263` (Pumpkin 0.2.1 or 0.2.0) or `mc262` (Pumpkin 0.1.0-dev)");
 
 #[cfg(all(target_arch = "wasm32", feature = "mc262", not(feature = "mc263")))]
 extern crate api262 as papi;
@@ -48,6 +57,13 @@ mod tests {
     use pumbo_common::lang::{Lang, check_bundle};
 
     use super::*;
+
+    #[test]
+    fn platform_label_follows_the_pumpkin_build() {
+        assert_eq!(platform_263(None), "Pumpkin 0.2.1 (MC 26.3)");
+        assert_eq!(platform_263(Some("0.2.0")), "Pumpkin 0.2.0 (MC 26.3)");
+        assert_eq!(platform_263(Some("")), "Pumpkin 0.2.1 (MC 26.3)");
+    }
 
     #[test]
     fn messages_are_complete_in_every_language() {

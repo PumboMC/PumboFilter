@@ -1,5 +1,5 @@
 //! The parts of the Pumpkin plugin API this plugin uses (the same in Pumpkin
-//! 0.2.0 and 0.1.0-dev), text conversion, and the hold: a dark screen on the
+//! 0.2.1, 0.2.0 and 0.1.0-dev), text conversion, and the hold: a dark screen on the
 //! client only and hidden from other players. Nothing of it is written to the
 //! player's data file.
 
@@ -30,7 +30,7 @@ use pumbo_common::text::{Color, Named};
 use pumbo_filter_core::place::{Place, Pos};
 
 #[cfg(feature = "mc263")]
-pub const PLATFORM: &str = "Pumpkin 0.2.0 (MC 26.3)";
+pub const PLATFORM: &str = crate::platform_263(option_env!("PUMBO_PUMPKIN"));
 #[cfg(feature = "mc262")]
 pub const PLATFORM: &str = "Pumpkin 0.1.0-dev (MC 26.2)";
 
