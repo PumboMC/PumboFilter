@@ -67,7 +67,7 @@ jobs:
           # Most Pumpkin builds land in dist/ of the workspace, some in their own folder.
           src=dist
           if [ -d plugins/pumbo-filter-pumpkin/dist ]; then src=plugins/pumbo-filter-pumpkin/dist; fi
-          for mc in 26.3 26.2; do
+          for mc in 26.3 0.2.0 26.2; do
             cp "$src/PumboFilter-$mc.wasm" "$out/PumboFilter-Pumpkin-$mc-$v.wasm"
           done
           cd "$out"

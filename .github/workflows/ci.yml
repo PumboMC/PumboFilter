@@ -39,7 +39,8 @@ jobs:
       - name: Clippy
         run: cargo clippy --workspace --all-targets --locked -- -D warnings
       # The plugin builds as build.sh makes them: Pumpkin 26.3 (default
-      # features), Pumpkin 26.2 (mc262) and PumboProx, where the plugin has one.
+      # features, API 0.2.1), Pumpkin 26.2 (mc262) and PumboProx, where the plugin
+      # has one. build.sh also builds the Pumpkin 0.2.0 file.
       - name: Clippy for WebAssembly
         run: |
           cargo clippy -p pumbo-filter-pumpkin --target wasm32-wasip2 --locked -- -D warnings
@@ -54,3 +55,6 @@ jobs:
         run: cargo deny --locked check bans licenses sources
       - name: Build
         run: for b in plugins/*/build.sh; do "$b"; done
+      # build.sh pins the plugin API to 0.2.0 for one file and must put Cargo.lock back.
+      - name: Cargo.lock unchanged
+        run: git diff --exit-code Cargo.lock
