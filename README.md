@@ -100,7 +100,7 @@ The checks live in one shared core. You pick the build that fits your setup.
 | Build | File | Where it goes | What is different |
 | --- | --- | --- | --- |
 | 🌐 **PumboProx** (whole network) | `PumboFilter-Proxy-<version>.wasm` | `plugins/` of the proxy | Checks run in the proxy's virtual world, before any server sees the player. Adds auto-ban, per-player language and a separate check mode for ViaProxy clients. |
-| 🎃 **Pumpkin** (one server) | `PumboFilter-Pumpkin-26.3-<version>.wasm` (Pumpkin 0.2.1), `PumboFilter-Pumpkin-0.2.0-<version>.wasm` (Pumpkin 0.2.0) or `PumboFilter-Pumpkin-26.2-<version>.wasm` | `plugins/` of the server | Checks run on the server. The held player is hidden, cannot be hurt and cannot use anything. Their world, inventory and data file never change. |
+| 🎃 **Pumpkin** (one server) | The file for your Pumpkin release ([which one](#installation)) | `plugins/` of the server | Checks run on the server. The held player is hidden, cannot be hurt and cannot use anything. Their world, inventory and data file never change. |
 
 ## Installation
 
@@ -120,7 +120,15 @@ The checks live in one shared core. You pick the build that fits your setup.
 
 **On Pumpkin**
 
-1. Put the file that matches your Pumpkin version into the server's `plugins/` folder.
+Each Pumpkin release loads only its own file:
+
+- Pumpkin 0.2.1+26.3-26.51: `PumboFilter-Pumpkin-26.3-<version>.wasm` from GitHub, or the file on the Pumpkin market
+- Pumpkin 0.2.0+26.3-26.51: `PumboFilter-Pumpkin-0.2.0-<version>.wasm` from GitHub
+- Pumpkin 0.1.0-dev+26.2-26.45: `PumboFilter-Pumpkin-26.2-<version>.wasm` from GitHub
+
+The GitHub files are in the [latest release](https://github.com/PumboMC/PumboFilter/releases/latest).
+
+1. Put that file into the server's `plugins/` folder.
 2. Start the server. The first start creates `plugins/data/pumbofilter/config.yml` and the language files.
 
 The plugin only needs to read and write its own data folder. It has no network access.
