@@ -56,7 +56,7 @@ So the data file never stays in the air after a normal leave, and a crash costs 
 
 The plugin needs the `fs.read.data` and `fs.write.data` permissions of Pumpkin's plugin sandbox and nothing else.
 
-Behind a proxy (PumboProx, Velocity), install it on the server players join first. The real IP and the premium profile come from the forwarding.
+Behind a proxy (PumboProx or another), install it on the server players join first. The real IP and the premium profile come from the forwarding.
 
 Note: with the console input on a pipe that stays open, Pumpkin 0.2.1, 0.2.0 and 0.1.0-dev hang on "Starting save." after SIGINT (also without plugins); stop them with the `stop` command.
 
@@ -96,7 +96,7 @@ A player who has to be checked is held: the screen is dark (on the client only),
 | `language` | `en` | language of the messages: `en`, `pl` or any code with a `lang/<code>.yml` file |
 | `filter.check-mode` | `GRAVITY_THEN_CAPTCHA` | checks of a new player: `ALWAYS` (gravity and CAPTCHA), `ONLY_GRAVITY`, `ONLY_CAPTCHA`, `GRAVITY_THEN_CAPTCHA` (the CAPTCHA only after a failed or impossible gravity check) or `NEVER` |
 | `filter.attack-check-mode` | `ALWAYS` | the same choice during an attack (many connections at once) |
-| `filter.skip-premium` | `true` | players authenticated by Mojang skip the checks, except during an attack. They are recognised by a version 4 UUID with a signed skin, which only a server in online mode or authenticated proxy forwarding (Velocity modern, PumboProx, BungeeGuard, Vine) gives. Turn it off behind BungeeCord forwarding without BungeeGuard |
+| `filter.skip-premium` | `true` | players authenticated by Mojang skip the checks, except during an attack. They are recognised by a version 4 UUID with a signed skin, which only a server in online mode or authenticated proxy forwarding (PumboProx, or forwarding with a shared secret) gives. Turn it off behind legacy forwarding without a shared secret |
 | `filter.verified-cache` / `verified-ttl-hours` | `true` / `12` | remember players who passed (nickname + address) and let them in directly for this long |
 | `filter.whitelist` | none | `"Nick@1.2.3.4"` pairs that are never checked |
 | `captcha.mode` | `map` | `map`: the code is drawn on a map in the player's empty main hand (players holding something get the title); `title`: the code is shown as a title. Map pixels reach every online player (only the holder sees them), and the chunk where a player answered keeps an invisible map block entity (16 KB) |
