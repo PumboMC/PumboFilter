@@ -19,7 +19,8 @@ PumboFilter works on its own. When [PumboAuth](../pumbo-auth-pumpkin/README.md) 
 
 | File | Pumpkin | Minecraft |
 | --- | --- | --- |
-| `PumboFilter-26.3.wasm` | release `0.2.0+26.3-26.51` | 26.3 |
+| `PumboFilter-26.3.wasm` | release `0.2.1+26.3-26.51` | 26.3 |
+| `PumboFilter-0.2.0.wasm` | release `0.2.0+26.3-26.51` | 26.3 |
 | `PumboFilter-26.2.wasm` | release `0.1.0-dev+26.2-26.45` | 26.2 |
 
 Pumpkin checks the plugin API strictly: a file only loads on the server version it was built for. No source build or server hooks are needed.
@@ -57,12 +58,12 @@ The plugin needs the `fs.read.data` and `fs.write.data` permissions of Pumpkin's
 
 Behind a proxy (PumboProx, Velocity), install it on the server players join first. The real IP and the premium profile come from the forwarding.
 
-Note: Pumpkin 0.2.0 and 0.1.0-dev hang on "Starting save." when they get SIGINT (also without plugins); stop them with the `stop` command.
+Note: with the console input on a pipe that stays open, Pumpkin 0.2.1, 0.2.0 and 0.1.0-dev hang on "Starting save." after SIGINT (also without plugins); stop them with the `stop` command.
 
 ## Building
 
 ```sh
-./build.sh          # dist/PumboFilter-26.3.wasm and dist/PumboFilter-26.2.wasm (at the workspace root)
+./build.sh          # dist/PumboFilter-26.3.wasm, -0.2.0.wasm and -26.2.wasm (at the workspace root)
 cargo test -p pumbo-filter-core -p pumbo-filter-pumpkin
 ```
 

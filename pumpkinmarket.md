@@ -32,7 +32,7 @@ Anti-bot checks for Pumpkin servers. A new player falls for a few seconds high a
 
 ## Installation
 
-Drop the file into `plugins/` and start the server. The config is created in `plugins/data/pumbofilter/`. Works with Pumpkin 0.2.0 (Minecraft 26.3).
+Drop the file into `plugins/` and start the server. The config is created in `plugins/data/pumbofilter/`. Works with Pumpkin 0.2.1 (Minecraft 26.3); for Pumpkin 0.2.0 take `PumboFilter-Pumpkin-0.2.0-<version>.wasm` from the [releases on GitHub](https://github.com/PumboMC/PumboFilter/releases).
 
 ## Running a network?
 

@@ -2,6 +2,12 @@
 
 All notable changes to PumboFilter, one section per release. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+### Changed
+
+- Builds for Pumpkin 0.2.1; Pumpkin 0.2.0 has its own file.
+
 ## [0.1.2-beta] - 2026-10-09
 
 No changes in PumboFilter; released with PumboPerms 0.1.2-beta.
