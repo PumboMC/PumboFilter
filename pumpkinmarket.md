@@ -32,7 +32,11 @@ Anti-bot checks for Pumpkin servers. A new player falls for a few seconds high a
 
 ## Installation
 
-Drop the file into `plugins/` and start the server. The config is created in `plugins/data/pumbofilter/`. Each Pumpkin release loads only its own file:
+Drop the file into `plugins/` and start the server. The config is created in `plugins/data/pumbofilter/`.
+
+## Pumpkin versions
+
+Each Pumpkin release loads only its own file:
 
 - Pumpkin 0.2.1+26.3-26.51: the file here, or `PumboFilter-Pumpkin-26.3-<version>.wasm` from GitHub
 - Pumpkin 0.2.0+26.3-26.51: `PumboFilter-Pumpkin-0.2.0-<version>.wasm` from GitHub
