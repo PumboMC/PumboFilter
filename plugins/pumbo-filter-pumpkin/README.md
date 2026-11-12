@@ -64,8 +64,6 @@ So the data file never stays in the air after a normal leave, and a crash costs 
 
 Behind a proxy (PumboProx or another), install it on the server players join first. The real IP and the premium profile come from the forwarding.
 
-On Pumpkin 0.2.1 and 0.2.2 typing a plugin command in the server console can crash the server; this is a bug in Pumpkin. Until it is fixed, set `use_tty = false` in `[commands]` of `pumpkin.toml`. The console still takes commands, without Tab completion.
-
 Note: with the console input on a pipe that stays open, Pumpkin 0.2.1, 0.2.0 and 0.1.0-dev hang on "Starting save." after SIGINT (also without plugins); stop them with the `stop` command.
 
 ## Building
