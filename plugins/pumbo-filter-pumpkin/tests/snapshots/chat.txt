@@ -1,0 +1,137 @@
+PumboFilter on Pumpkin: chat screens. Written by tests/chat.rs (PUMBO_SNAPSHOT_WRITE=1).
+
+== F1 admin: /pumbofilter help
+{"extra":[{"bold":true,"color":"#f28c28","text":"Pumbo"},{"bold":true,"color":"#f28c28","text":"Filter"},{"color":"dark_gray","text":" 0.1.3-beta"},{"color":"dark_gray","text":" · "},{"color":"white","text":"Admin"},{"text":"   "},{"click_event":{"action":"suggest_command","command":"/pumbofilter "},"color":"#ffc27a","hover_event":{"action":"show_text","value":{"extra":[{"color":"gray","text":"Click to type it in chat"}],"text":""}},"text":"/pumbofilter"},{"text":" "},{"click_event":{"action":"suggest_command","command":"/pf "},"color":"gray","text":"/pf"},{"text":"\n"},{"click_event":{"action":"suggest_command","command":"/pumbofilter reload"},"extra":[{"color":"#ffc27a","text":"reload"},{"text":"          "},{"bold":true,"text":"   "},{"color":"gray","text":"Reload the config and messages"}],"hover_event":{"action":"show_text","value":{"extra":[{"color":"#ffc27a","text":"/pumbofilter reload"},{"text":"\n"},{"color":"white","text":"Reload the config and messages"},{"text":"\n"},{"text":"\n"},{"color":"dark_gray","text":"Permission: pumbo.filter.reload"},{"text":"\n"},{"color":"dark_gray","italic":true,"text":"Click to type it in chat"}],"text":""}},"text":""},{"text":"\n"},{"click_event":{"action":"suggest_command","command":"/pumbofilter stats"},"extra":[{"color":"#ffc27a","text":"stats"},{"text":"             "},{"bold":true,"text":"  "},{"color":"gray","text":"Checks, attack mode and players"}],"hover_event":{"action":"show_text","value":{"extra":[{"color":"#ffc27a","text":"/pumbofilter stats"},{"text":"\n"},{"color":"white","text":"Checks, attack mode and players"},{"text":"\n"},{"text":"\n"},{"color":"dark_gray","text":"Permission: pumbo.filter.stats"},{"text":"\n"},{"color":"dark_gray","italic":true,"text":"Click to type it in chat"}],"text":""}},"text":""},{"text":"\n"},{"click_event":{"action":"suggest_command","command":"/pumbofilter verify "},"extra":[{"color":"#ffc27a","text":"verify "},{"color":"white","text":"<nick> <ip>"},{"text":"   "},{"color":"gray","text":"Let a nickname from an address skip the c..."}],"hover_event":{"action":"show_text","value":{"extra":[{"color":"#ffc27a","text":"/pumbofilter verify "},{"color":"white","text":"<nick> <ip>"},{"text":"\n"},{"color":"white","text":"Let a nickname from an address skip the checks"},{"text":"\n"},{"color":"gray","text":"The pair stays verified for verified-ttl-hours."},{"text":"\n"},{"color":"gray","text":"Example: /pumbofilter verify Steve 1.2.3.4"},{"text":"\n"},{"text":"\n"},{"color":"dark_gray","text":"Permission: pumbo.filter.verify"},{"text":"\n"},{"color":"dark_gray","italic":true,"text":"Click to type it in chat"}],"text":""}},"text":""},{"text":"\n"},{"click_event":{"action":"suggest_command","command":"/pumbofilter unverify "},"extra":[{"color":"#ffc27a","text":"unverify "},{"color":"white","text":"<nick>"},{"text":"   "},{"color":"gray","text":"Check a nickname again"}],"hover_event":{"action":"show_text","value":{"extra":[{"color":"#ffc27a","text":"/pumbofilter unverify "},{"color":"white","text":"<nick>"},{"text":"\n"},{"color":"white","text":"Check a nickname again"},{"text":"\n"},{"color":"gray","text":"Removes every address of the nickname from the verified cache."},{"text":"\n"},{"text":"\n"},{"color":"dark_gray","text":"Permission: pumbo.filter.unverify"},{"text":"\n"},{"color":"dark_gray","italic":true,"text":"Click to type it in chat"}],"text":""}},"text":""},{"text":"\n"},{"click_event":{"action":"suggest_command","command":"/pumbofilter attack "},"extra":[{"color":"#ffc27a","text":"attack "},{"color":"white","text":"<on|off|auto>"},{"text":"   "},{"color":"gray","text":"Force attack mode on or off"}],"hover_event":{"action":"show_text","value":{"extra":[{"color":"#ffc27a","text":"/pumbofilter attack "},{"color":"white","text":"<on|off|auto>"},{"text":"\n"},{"color":"white","text":"Force attack mode on or off"},{"text":"\n"},{"color":"gray","text":"auto switches by the connection rate again."},{"text":"\n"},{"text":"\n"},{"color":"dark_gray","text":"Permission: pumbo.filter.attack"},{"text":"\n"},{"color":"dark_gray","italic":true,"text":"Click to type it in chat"}],"text":""}},"text":""},{"text":"\n"},{"click_event":{"action":"suggest_command","command":"/pumbofilter version"},"extra":[{"color":"#ffc27a","text":"version"},{"text":"          "},{"bold":true,"text":"  "},{"color":"gray","text":"Version and platform"}],"hover_event":{"action":"show_text","value":{"extra":[{"color":"#ffc27a","text":"/pumbofilter version"},{"text":"\n"},{"color":"white","text":"Version and platform"},{"text":"\n"},{"text":"\n"},{"color":"dark_gray","text":"Permission: pumbo.filter.version"},{"text":"\n"},{"color":"dark_gray","italic":true,"text":"Click to type it in chat"}],"text":""}},"text":""},{"text":"\n"},{"color":"dark_gray","text":"Hover a command for details, click to type it."}],"text":""}
+
+== F1 console: pumbofilter help
+  PumboFilter 0.1.3-beta · Admin   /pumbofilter /pf
+    /pumbofilter reload                 Reload the config and messages
+    /pumbofilter stats                  Checks, attack mode and players
+    /pumbofilter verify <nick> <ip>     Let a nickname from an address skip the checks
+    /pumbofilter unverify <nick>        Check a nickname again
+    /pumbofilter attack <on|off|auto>   Force attack mode on or off
+    /pumbofilter version                Version and platform
+
+== F2 admin: /pumbofilter stats
+{"extra":[{"color":"#f28c28","text":"PumboFilter "},{"color":"dark_gray","text":"» "},{"color":"gray","text":"Held now: "},{"color":"white","text":"0"},{"color":"gray","text":" of "},{"color":"white","text":"0"},{"color":"gray","text":" players"},{"text":"\n"},{"color":"gray","text":"Checked: "},{"color":"white","text":"5,310"},{"text":", passed: "},{"color":"white","text":"5,102"},{"text":", failed: "},{"color":"white","text":"208"},{"text":", put back after a crash: "},{"color":"white","text":"0"},{"text":"\n"},{"color":"gray","text":"Attack mode: "},{"color":"white","text":"off"},{"text":", "},{"color":"white","text":"0"},{"text":" connections in the last "},{"color":"white","text":"5"},{"text":" s, "},{"color":"white","text":"1,932"},{"text":" blocked in total"},{"text":"\n"},{"color":"gray","text":"Database: "},{"color":"white","text":"ok"}],"text":""}
+
+== F2 console: pumbofilter stats
+  PumboFilter » Held now: 0 of 0 players
+  Checked: 5,310, passed: 5,102, failed: 208, put back after a crash: 0
+  Attack mode: off, 0 connections in the last 5 s, 1,932 blocked in total
+  Database: ok
+
+== F6 admin: /pumbofilter attack on
+{"extra":[{"color":"#f28c28","text":"PumboFilter "},{"color":"dark_gray","text":"» "},{"color":"green","text":"Attack mode is now "},{"color":"white","text":"on"},{"color":"green","text":"."}],"text":""}
+
+== F6 admin: /pumbofilter stats
+{"extra":[{"color":"#f28c28","text":"PumboFilter "},{"color":"dark_gray","text":"» "},{"color":"gray","text":"Held now: "},{"color":"white","text":"0"},{"color":"gray","text":" of "},{"color":"white","text":"0"},{"color":"gray","text":" players"},{"text":"\n"},{"color":"gray","text":"Checked: "},{"color":"white","text":"5,310"},{"text":", passed: "},{"color":"white","text":"5,102"},{"text":", failed: "},{"color":"white","text":"208"},{"text":", put back after a crash: "},{"color":"white","text":"0"},{"text":"\n"},{"color":"gray","text":"Attack mode: "},{"color":"white","text":"on"},{"text":", "},{"color":"white","text":"0"},{"text":" connections in the last "},{"color":"white","text":"5"},{"text":" s, "},{"color":"white","text":"1,932"},{"text":" blocked in total"},{"text":"\n"},{"color":"gray","text":"Database: "},{"color":"white","text":"ok"}],"text":""}
+
+== S2 admin: /pumbofilter verify Steve 203.0.113.7
+{"extra":[{"color":"#f28c28","text":"PumboFilter "},{"color":"dark_gray","text":"» "},{"color":"white","text":"Steve"},{"color":"green","text":" from "},{"color":"white","text":"203.0.113.7"},{"color":"green","text":" is verified for "},{"color":"white","text":"12 hours"},{"color":"green","text":"."}],"text":""}
+
+== S2 admin: /pumbofilter verify Steve nope
+{"extra":[{"color":"#f28c28","text":"PumboFilter "},{"color":"dark_gray","text":"» "},{"color":"red","text":"Invalid address "},{"color":"white","text":"nope"},{"color":"red","text":"."}],"text":""}
+
+== S2 admin: /pumbofilter unverify Steve
+{"extra":[{"color":"#f28c28","text":"PumboFilter "},{"color":"dark_gray","text":"» "},{"color":"green","text":"Removed "},{"color":"white","text":"1"},{"color":"green","text":" entries of "},{"color":"white","text":"Steve"},{"color":"green","text":" from the verified cache."}],"text":""}
+
+== S2 admin: /pumbofilter attack
+{"extra":[{"click_event":{"action":"suggest_command","command":"/pumbofilter attack "},"extra":[{"color":"#f28c28","text":"PumboFilter "},{"color":"dark_gray","text":"» "},{"color":"red","text":"Usage: "},{"color":"#ffc27a","text":"/pumbofilter attack "},{"color":"white","text":"<on|off|auto>"}],"hover_event":{"action":"show_text","value":{"extra":[{"color":"gray","text":"Click to type the command"}],"text":""}},"text":""}],"text":""}
+
+== S2 admin: /pumbofilter attack maybe
+{"extra":[{"color":"#f28c28","text":"PumboFilter "},{"color":"dark_gray","text":"» "},{"color":"red","text":"Use on, off or auto."}],"text":""}
+
+== S2 admin: /pumbofilter atack
+{"extra":[{"click_event":{"action":"run_command","command":"/pumbofilter help"},"extra":[{"color":"#f28c28","text":"PumboFilter "},{"color":"dark_gray","text":"» "},{"color":"red","text":"Unknown subcommand "},{"color":"white","text":"atack"},{"color":"red","text":". Use "},{"color":"#ffc27a","text":"/pumbofilter help"},{"color":"red","text":"."}],"hover_event":{"action":"show_text","value":{"extra":[{"color":"gray","text":"Click to see the commands"}],"text":""}},"text":""}],"text":""}
+
+== S2 admin: /pumbofilter version
+{"extra":[{"bold":true,"color":"#f28c28","text":"Pumbo"},{"bold":true,"color":"#f28c28","text":"Filter"},{"color":"white","text":" 0.1.3-beta"},{"text":"\n"},{"color":"gray","text":"Platform: "},{"color":"white","text":"Pumpkin 0.2.2 (MC 26.3)"}],"text":""}
+
+== S2 admin: reload with 2 warnings
+{"extra":[{"color":"#f28c28","text":"PumboFilter "},{"color":"dark_gray","text":"» "},{"color":"yellow","text":"Reloaded with "},{"color":"white","text":"2"},{"color":"yellow","text":" warnings, see the server log."}],"text":""}
+
+== S2 admin: /pumbofilter reload
+{"extra":[{"color":"#f28c28","text":"PumboFilter "},{"color":"dark_gray","text":"» "},{"color":"green","text":"Configuration reloaded."}],"text":""}
+
+== S2 player: /pumbofilter stats
+{"extra":[{"color":"#f28c28","text":"PumboFilter "},{"color":"dark_gray","text":"» "},{"color":"red","text":"You don't have permission to do that."}],"text":""}
+
+== S2 player: /pumbofilter help
+{"extra":[{"bold":true,"color":"#f28c28","text":"Pumbo"},{"bold":true,"color":"#f28c28","text":"Filter"},{"color":"dark_gray","text":" 0.1.3-beta"},{"color":"dark_gray","text":" · "},{"color":"white","text":"Admin"},{"text":"   "},{"click_event":{"action":"suggest_command","command":"/pumbofilter "},"color":"#ffc27a","hover_event":{"action":"show_text","value":{"extra":[{"color":"gray","text":"Click to type it in chat"}],"text":""}},"text":"/pumbofilter"},{"text":" "},{"click_event":{"action":"suggest_command","command":"/pf "},"color":"gray","text":"/pf"},{"text":"\n"},{"color":"gray","text":"There are no commands you can use."}],"text":""}
+
+== S2 console: pumbofilter verify Steve 203.0.113.7
+  PumboFilter » Steve from 203.0.113.7 is verified for 12 hours.
+
+== F3 player (en): join
+{"extra":[{"color":"#f28c28","text":"PumboFilter "},{"color":"dark_gray","text":"» "},{"color":"gray","text":"Checking your connection. Do not move until the check is done."}],"text":""}
+title: {"extra":[{"color":"gold","text":"Don't move"}],"text":""}
+subtitle: {"extra":[{"color":"gray","text":"Checking your connection"}],"text":""}
+
+== F5 player (en): falling
+actionbar: {"extra":[{"color":"#f28c28","text":"PumboFilter "},{"color":"dark_gray","text":"» "},{"color":"gray","text":"Checking... 2%"}],"text":""}
+actionbar: {"extra":[{"color":"#f28c28","text":"PumboFilter "},{"color":"dark_gray","text":"» "},{"color":"gray","text":"Checking... 9%"}],"text":""}
+
+== F3 player (en): check passed
+{"extra":[{"color":"#f28c28","text":"PumboFilter "},{"color":"dark_gray","text":"» "},{"color":"green","text":"Check passed."}],"text":""}
+actionbar: {"text":""}
+title: {"text":""}
+subtitle: {"text":""}
+
+== F3 player (en): chat while checked
+{"extra":[{"color":"#f28c28","text":"PumboFilter "},{"color":"dark_gray","text":"» "},{"color":"red","text":"Finish the check first."}],"text":""}
+
+== F3 player (en): captcha
+{"extra":[{"color":"#f28c28","text":"PumboFilter "},{"color":"dark_gray","text":"» "},{"color":"gray","text":"Checking your connection. Do not move until the check is done."}],"text":""}
+title: {"extra":[{"color":"gold","text":"Don't move"}],"text":""}
+subtitle: {"extra":[{"color":"gray","text":"Checking your connection"}],"text":""}
+{"extra":[{"color":"#f28c28","text":"PumboFilter "},{"color":"dark_gray","text":"» "},{"color":"gray","text":"Type the code from the map in your hand in chat. Attempts: 2."}],"text":""}
+title: {"extra":[{"color":"gold","text":"Enter the code"}],"text":""}
+subtitle: {"extra":[{"color":"gray","text":"from the map in your hand"}],"text":""}
+
+== F3 player (en): wrong code 1
+{"extra":[{"color":"#f28c28","text":"PumboFilter "},{"color":"dark_gray","text":"» "},{"color":"red","text":"Wrong code. Attempts left: 1."}],"text":""}
+
+== F3 player (en): wrong code 2
+kick: {"extra":[{"color":"red","text":"Wrong code."},{"text":"\n"},{"color":"gray","text":"Please join again."}],"text":""}
+
+== F3 player (pl): join
+{"extra":[{"color":"#f28c28","text":"PumboFilter "},{"color":"dark_gray","text":"» "},{"color":"gray","text":"Sprawdzamy połączenie. Nie ruszaj się, dopóki sprawdzanie się nie skończy."}],"text":""}
+title: {"extra":[{"color":"gold","text":"Nie ruszaj się"}],"text":""}
+subtitle: {"extra":[{"color":"gray","text":"Sprawdzamy połączenie"}],"text":""}
+
+== F5 player (pl): falling
+actionbar: {"extra":[{"color":"#f28c28","text":"PumboFilter "},{"color":"dark_gray","text":"» "},{"color":"gray","text":"Sprawdzanie... 2%"}],"text":""}
+actionbar: {"extra":[{"color":"#f28c28","text":"PumboFilter "},{"color":"dark_gray","text":"» "},{"color":"gray","text":"Sprawdzanie... 9%"}],"text":""}
+
+== F3 player (pl): check passed
+{"extra":[{"color":"#f28c28","text":"PumboFilter "},{"color":"dark_gray","text":"» "},{"color":"green","text":"Sprawdzanie zaliczone."}],"text":""}
+actionbar: {"text":""}
+title: {"text":""}
+subtitle: {"text":""}
+
+== F3 player (pl): chat while checked
+{"extra":[{"color":"#f28c28","text":"PumboFilter "},{"color":"dark_gray","text":"» "},{"color":"red","text":"Najpierw dokończ sprawdzanie."}],"text":""}
+
+== F3 player (pl): captcha
+{"extra":[{"color":"#f28c28","text":"PumboFilter "},{"color":"dark_gray","text":"» "},{"color":"gray","text":"Sprawdzamy połączenie. Nie ruszaj się, dopóki sprawdzanie się nie skończy."}],"text":""}
+title: {"extra":[{"color":"gold","text":"Nie ruszaj się"}],"text":""}
+subtitle: {"extra":[{"color":"gray","text":"Sprawdzamy połączenie"}],"text":""}
+{"extra":[{"color":"#f28c28","text":"PumboFilter "},{"color":"dark_gray","text":"» "},{"color":"gray","text":"Wpisz na czacie kod z mapy w ręce. Próby: 2."}],"text":""}
+title: {"extra":[{"color":"gold","text":"Wpisz kod"}],"text":""}
+subtitle: {"extra":[{"color":"gray","text":"z mapy w ręce"}],"text":""}
+
+== F3 player (pl): wrong code 1
+{"extra":[{"color":"#f28c28","text":"PumboFilter "},{"color":"dark_gray","text":"» "},{"color":"red","text":"Zły kod. Zostało prób: 1."}],"text":""}
+
+== F3 player (pl): wrong code 2
+kick: {"extra":[{"color":"red","text":"Zły kod."},{"text":"\n"},{"color":"gray","text":"Wejdź ponownie."}],"text":""}
+
+== S4 player: captcha with prefix: SkyBlock
+{"extra":[{"color":"#7cc0ff","text":"SkyBlock "},{"color":"dark_gray","text":"» "},{"color":"gray","text":"Checking your connection. Do not move until the check is done."}],"text":""}
+title: {"extra":[{"color":"gold","text":"Don't move"}],"text":""}
+subtitle: {"extra":[{"color":"gray","text":"Checking your connection"}],"text":""}
+{"extra":[{"color":"#7cc0ff","text":"SkyBlock "},{"color":"dark_gray","text":"» "},{"color":"gray","text":"Type the code from the map in your hand in chat. Attempts: 2."}],"text":""}
+title: {"extra":[{"color":"gold","text":"Enter the code"}],"text":""}
+subtitle: {"extra":[{"color":"gray","text":"from the map in your hand"}],"text":""}
+{"extra":[{"color":"#7cc0ff","text":"SkyBlock "},{"color":"dark_gray","text":"» "},{"color":"red","text":"Wrong code. Attempts left: 1."}],"text":""}
