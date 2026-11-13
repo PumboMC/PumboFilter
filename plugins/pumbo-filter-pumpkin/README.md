@@ -73,7 +73,7 @@ Note: with the console input on a pipe that stays open, Pumpkin 0.2.1, 0.2.0 and
 cargo test -p pumbo-filter-core -p pumbo-filter-pumpkin
 ```
 
-Rust stable with the `wasm32-wasip2` target is required.
+Rust comes from `rust-toolchain.toml` at the workspace root: rustup installs that version and the `wasm32-wasip2` target on the first build.
 
 ## Commands and permissions
 

@@ -189,11 +189,7 @@ PumboFilter works on its own. When it finds other Pumbo plugins, it works with t
 
 ## Building
 
-You need Rust stable with the WebAssembly target:
-
-```sh
-rustup target add wasm32-wasip2
-```
+You need [rustup](https://rustup.rs). The Rust version and the WebAssembly target are pinned in `rust-toolchain.toml`, and rustup installs them on the first build.
 
 Cargo fetches the shared Pumbo libraries (`pumbo-common`, `pumbo-sdk`) from the [PumboProx](https://github.com/PumboMC/PumboProx) repository on the first build.
 
