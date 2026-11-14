@@ -33,9 +33,6 @@
 
 <p align="center"><b>Running more than one server?</b> <a href="https://github.com/PumboMC/PumboProx">PumboProx</a> is the proxy for Pumpkin networks, with plugins in WebAssembly.<br>PumboFilter runs on it too: bots are stopped before they reach any of your servers, and a player checked once is not checked again on the next server.</p>
 
-> [!NOTE]
-> PumboFilter is in **beta** (0.1.3-beta). Try it on a test server before you put players on it.
-
 ## What it does
 
 PumboFilter checks that a new player is a real Minecraft client before they play. The player falls for a few seconds while the plugin compares their movement with vanilla physics, and answers a CAPTCHA when that is not enough. When a flood of connections starts, the checks get stricter. A player who passed once is let in directly next time.
